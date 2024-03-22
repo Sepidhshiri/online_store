@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from model.entity.base import Base
+from model.entity import *
+
 
 class Product(Base):
     __tablename__ = "product_tbl"
@@ -9,8 +10,11 @@ class Product(Base):
     brand = Column(String(30))
     buy_price = Column(Float)
     sell_price = Column(Float)
+
     category_id = Column(Integer, ForeignKey('category_tbl.id'))
-    category = relationship("Category", back_populates="products")
+    category = relationship("Category")
+
+    order_details = relationship("OrderDetail")
 
     def __init__(self, name, brand, buy_price, sell_price, category_id):
         self.name = name
@@ -19,5 +23,4 @@ class Product(Base):
         self.sell_price = sell_price
         self.category_id = category_id
 
-    def __repr__(self):
-        return f"<Product(id={self.id}, name='{self.name}', brand='{self.brand}', buy_price={self.buy_price}, sell_price={self.sell_price}, category_id={self.category_id})>"
+
