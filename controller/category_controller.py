@@ -2,7 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.category_da import CategoryDa
 from model.entity.category import Category
-from validators.validator import name_validator, description_validator
+from tools.validator import name_validator, description_validator
 
 
 class CategoryController:

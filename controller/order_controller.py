@@ -1,9 +1,7 @@
 from model.entity import *
 from model.da import *
 
-from model.da.order_da import OrderDa
-from model.entity.order import Order
-from validators.validator import id_validator, order_type_validator, order_status_validator, cost_validator
+from tools.validators import id_validator, order_type_validator, order_status_validator, cost_validator
 
 
 class OrderController:

@@ -2,7 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.product_da import ProductDa
 from model.entity.product import Product
-from validators.Validator import name_validator, price_validator, id_validator
+from tools.validators import name_validator, price_validator, id_validator
 
 
 class ProductController:
