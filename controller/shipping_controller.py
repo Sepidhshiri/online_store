@@ -2,7 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.shipping_da import ShippingDa
 from model.entity.shipping import Shipping
-from validators.validator import name_validator, address_validator, city_validator, postalcode_validator
+from tools.validators import name_validator, address_validator, city_validator, postalcode_validator
 
 
 class ShippingController:

@@ -2,7 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.storage_da import StorageDa
 from model.entity.storage import Storage
-from validators.validator import id_validator, quantity_validator, product_status_validator
+from tools.validators import id_validator, quantity_validator, product_status_validator
 
 
 class StorageController:

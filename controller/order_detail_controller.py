@@ -1,8 +1,7 @@
 from model.entity import *
 from model.da import *
-from model.da.order_detail_da import OrderDetailDa
-from model.entity.order_detail import OrderDetail
-from validators.validator import quantity_validator, price_validator, comment_validator
+
+from tools.validators import quantity_validator, price_validator, comment_validator
 
 
 class OrderDetailController:

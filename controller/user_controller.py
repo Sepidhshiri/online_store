@@ -2,7 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.user_da import UserDa
 from model.entity.user import User
-from validators.validator import name_validator, family_validator, phone_validator, username_validator, \
+from tools.validators import name_validator, family_validator, phone_validator, username_validator, \
     password_validator
 
 
