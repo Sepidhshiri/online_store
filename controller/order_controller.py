@@ -7,7 +7,8 @@ from validators.validator import id_validator, order_type_validator, order_statu
 
 
 class OrderController:
-    def save(self, order_type, order_status, total_cost, customer_id, shipping_id):
+    @classmethod
+    def save(cls, order_type, order_status, total_cost, customer_id, shipping_id):
         try:
             order = Order(order_type=order_type_validator(order_type, "invalid order type"),
                           order_status=order_status_validator(order_status, "invalid order status"),

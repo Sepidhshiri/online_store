@@ -7,7 +7,8 @@ from validators.validator import name_validator, family_validator, phone_validat
 
 
 class UserController:
-    def save(self, name, family, birth_date, phone, email, address, role):
+    @classmethod
+    def save(cls, name, family, birth_date, phone, email, address, role):
         try:
             user = User(name=name_validator(name, "invalid name"),
                         family=family_validator(family, "invalid family"),

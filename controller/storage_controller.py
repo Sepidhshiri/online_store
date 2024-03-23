@@ -6,7 +6,8 @@ from validators.validator import id_validator, quantity_validator, product_statu
 
 
 class StorageController:
-    def save(self, quantity, product_status, product_id):
+    @classmethod
+    def save(cls, quantity, product_status, product_id):
         try:
             storage = Storage(quantity=quantity_validator(quantity, "invalid quantity"),
                               product_status=product_status_validator(product_status, "invalid product status"),

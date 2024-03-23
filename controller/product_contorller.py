@@ -6,7 +6,8 @@ from validators.validator import name_validator, price_validator, id_validator
 
 
 class ProductController:
-    def save(self, name, brand, buy_price, sell_price, category_id):
+    @classmethod
+    def save(cls, name, brand, buy_price, sell_price, category_id):
         try:
             product = Product(name=name_validator(name, "invalid name"),
                               brand=brand,

@@ -6,7 +6,8 @@ from validators.validator import name_validator, description_validator
 
 
 class CategoryController:
-    def save(self, name, description, sub_category=None):
+    @classmethod
+    def save(cls, name, description, sub_category=None):
         try:
             category = Category(name=name_validator(name, "invalid name"),
                                 description=description_validator(description, "invalid description"),
@@ -23,7 +24,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
-    def edit_by_id(self, id, name, description, sub_category=None):
+    def edit(self, id, name, description, sub_category=None):
         try:
             da = CategoryDa()
             category = da.find_by_id(id)
@@ -41,7 +42,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    def remove(self, id):
         try:
             da = CategoryDa()
             result = da.remove_by_id(id)
@@ -53,6 +54,20 @@ class CategoryController:
 
         except Exception as e:
             return str(e)
+
+    def find_all(self):
+        try:
+            da = CategoryDa()
+            category = da.find_all(Category)
+
+            if category:
+                return f"Category found by id {id}"
+            else:
+                return "Category not found"
+
+        except Exception as e:
+            return str(e)
+
 
     def find_by_id(self, id):
         try:
@@ -66,5 +81,3 @@ class CategoryController:
 
         except Exception as e:
             return str(e)
-
-

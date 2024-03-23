@@ -6,7 +6,8 @@ from validators.validator import name_validator, address_validator, city_validat
 
 
 class ShippingController:
-    def save(self, recipient_name, address, city, postalcode):
+    @classmethod
+    def save(cls, recipient_name, address, city, postalcode):
         try:
             shipping = Shipping(recipient_name=name_validator(recipient_name, "invalid recipient name"),
                                 address=address_validator(address, "invalid address"),

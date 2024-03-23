@@ -6,7 +6,8 @@ from model.entity.order_detail import OrderDetail
 from validators.validator import id_validator, quantity_validator, price_validator
 
 class OrderDetailController:
-    def save(self, quantity, price, comment, product_id, order_id):
+    @classmethod
+    def save(cls, quantity, price, comment, product_id, order_id):
         try:
             order_detail = OrderDetail(quantity=quantity_validator(quantity, "invalid quantity"),
                                        price=price_validator(price, "invalid price"),
