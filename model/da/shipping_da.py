@@ -1,5 +1,5 @@
-from model.da.database_manager import DatabaseManager
-
+from model.entity import *
+from model.da import *
 
 class ShippingDa(DatabaseManager):
     def find_by_shipping_status(self, date_time):

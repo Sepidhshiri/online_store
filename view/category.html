@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Information</title>
+    <title>Category Information</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,13 +35,17 @@
             color: #555;
         }
         input[type="text"],
-        input[type="number"] {
+        textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px; /* Adjust height as needed */
         }
         input[type="submit"] {
             background-color: #4CAF50;
@@ -60,22 +64,16 @@
 </head>
 <body>
     <div class="container">
-        <h2>Product Information Form</h2>
+        <h2>Category Information Form</h2>
         <form action="#" method="POST">
-            <label for="name">Product Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter product name" required>
+            <label for="name">Category Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter category name" required>
 
-            <label for="brand">Brand:</label>
-            <input type="text" id="brand" name="brand" placeholder="Enter product brand" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Enter category description" required></textarea>
 
-            <label for="buy_price">Buy Price:</label>
-            <input type="number" id="buy_price" name="buy_price" placeholder="Enter buy price" required>
-
-            <label for="sell_price">Sell Price:</label>
-            <input type="number" id="sell_price" name="sell_price" placeholder="Enter sell price" required>
-
-            <label for="category_id">Category ID:</label>
-            <input type="number" id="category_id" name="category_id" placeholder="Enter category ID" required>
+            <label for="sub_category">Sub-Category:</label>
+            <input type="text" id="sub_category" name="sub_category" placeholder="Enter sub-category" required>
 
             <input type="submit" value="Save">
         </form>

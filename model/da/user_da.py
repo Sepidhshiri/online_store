@@ -1,5 +1,5 @@
-from model.da.database_manager import *
-
+from model.entity import *
+from model.da import *
 
 class UserDa(DatabaseManager):
 

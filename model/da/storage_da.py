@@ -1,6 +1,5 @@
-from model.da.database_manager import *
-from model.entity.storage import Storage
-
+from model.entity import *
+from model.da import *
 
 class StorageDa(DatabaseManager):
 

@@ -1,5 +1,5 @@
-from model.da.database_manager import DatabaseManager
-from model.entity.product import Product
+from model.entity import *
+from model.da import *
 
 
 class ProductDa (DatabaseManager):
