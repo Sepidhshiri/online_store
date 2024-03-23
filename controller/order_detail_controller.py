@@ -23,10 +23,11 @@ class OrderDetailController:
         except Exception as e:
             return str(e)
 
-    def edit_by_id(self, id, quantity, price, comment, product_id, order_id):
+    @classmethod
+    def edit(cls, id, quantity, price, comment, product_id, order_id):
         try:
             da = OrderDetailDa()
-            order_detail = da.edit_by_id(id)
+            order_detail = da.edit(id)
             if order_detail:
                 order_detail.quantity = quantity_validator(quantity, "Invalid quantity")
                 order_detail.price = price_validator(price, "Invalid price")
@@ -38,16 +39,18 @@ class OrderDetailController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    @classmethod
+    def remove(cls, id):
         try:
             da = OrderDetailDa()
-            result = da.remove_by_id(id)
+            result = da.remove(id)
             if result:
                 return f"Order detail with ID {id} removed successfully"
         except Exception as e:
             return str(e)
 
-    def find_by_id(self, id):
+    @classmethod
+    def find_by_id(cls, id):
         try:
             da = OrderDetailDa()
             order_detail = da.find_by_id(id)
@@ -58,7 +61,8 @@ class OrderDetailController:
         except Exception as e:
             return str(e)
 
-    def find_by_order_id(self, order_id):
+    @classmethod
+    def find_by_order_id(cls, order_id):
         try:
             da = OrderDetailDa()
             order_details = da.find_by_order_id(order_id)
@@ -69,7 +73,8 @@ class OrderDetailController:
         except Exception as e:
             return str(e)
 
-    def find_by_product_id(self, product_id):
+    @classmethod
+    def find_by_product_id(cls, product_id):
         try:
             da = OrderDetailDa()
             order_details = da.find_by_product_id(product_id)

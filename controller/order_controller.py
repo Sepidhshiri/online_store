@@ -25,7 +25,8 @@ class OrderController:
         except Exception as e:
             return str(e)
 
-    def edit_by_id(self, id, order_type, order_status, total_cost, customer_id, shipping_id):
+    @classmethod
+    def edit(cls, id, order_type, order_status, total_cost, customer_id, shipping_id):
         try:
             da = OrderDa()
             order = da.find_by_id(id)
@@ -45,10 +46,11 @@ class OrderController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    @classmethod
+    def remove(cls, id):
         try:
             da = OrderDa()
-            result = da.remove_by_id(id)
+            result = da.remove(id)
 
             if result:
                 return f"Order with ID {id} has been removed"
@@ -58,10 +60,11 @@ class OrderController:
         except Exception as e:
             return str(e)
 
-    def find_by_id(self, id):
+    @classmethod
+    def find_all(cls, id):
         try:
             da = OrderDa()
-            order = da.find_by_id(id)
+            order = da.find_all(Order)
 
             if order:
                 return f"Order found by ID {id}"
@@ -71,4 +74,18 @@ class OrderController:
         except Exception as e:
             return str(e)
 
+
+    @classmethod
+    def find_by_id(cls, id):
+        try:
+            da = OrderDa()
+            order = da.find_by_id(Order, id)
+
+            if order:
+                return f"Order found by ID {id}"
+            else:
+                return "Order not found"
+
+        except Exception as e:
+            return str(e)
 

@@ -25,7 +25,8 @@ class ShippingController:
         except Exception as e:
             return str(e)
 
-    def edit_by_id(self, id, recipient_name, address, city, postalcode):
+    @classmethod
+    def edit(cls, id, recipient_name, address, city, postalcode):
         try:
             da = ShippingDa()
             shipping = da.find_by_id(id)
@@ -44,10 +45,11 @@ class ShippingController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    @classmethod
+    def remove(cls, id):
         try:
             da = ShippingDa()
-            result = da.remove_by_id(id)
+            result = da.remove(id)
 
             if result:
                 return f"Shipping details with id {id} have been removed"
@@ -57,7 +59,8 @@ class ShippingController:
         except Exception as e:
             return str(e)
 
-    def find_by_id(self, id):
+    @classmethod
+    def find_by_id(cls, id):
         try:
             da = ShippingDa()
             shipping = da.find_by_id(id)

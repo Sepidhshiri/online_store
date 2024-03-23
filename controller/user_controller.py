@@ -29,7 +29,8 @@ class UserController:
         except Exception as e:
             return str(e)
 
-    def edit_by_user(self, id, name, family, birth_date, phone, email, address, role):
+    @classmethod
+    def edit_by_user(cls, id, name, family, birth_date, phone, email, address, role):
         try:
             da = UserDa()
             user = da.find_by_id(id)  # Fetch user by id before editing
@@ -51,10 +52,11 @@ class UserController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    @classmethod
+    def remove(cls, id):
         try:
             da = UserDa()
-            result = da.remove_by_id(id)
+            result = da.remove(id)
 
             if result:
                 return f"User with id {id} has been removed"
@@ -64,7 +66,8 @@ class UserController:
         except Exception as e:
             return str(e)
 
-    def find_by_id(self, id):
+    @classmethod
+    def find_by_id(cls, id):
         try:
             da = UserDa()
             user = da.find_by_id(id)
@@ -77,7 +80,8 @@ class UserController:
         except Exception as e:
             return str(e)
 
-    def find_by_username(self, username):
+    @classmethod
+    def find_by_username(cls, username):
         try:
             if username_validator(username, "invalid username"):
                 da = UserDa()

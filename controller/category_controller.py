@@ -23,6 +23,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
+    @classmethod
     def edit(cls, id, name, description, sub_category=None):
         try:
             da = CategoryDa()
@@ -41,10 +42,11 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
+    @classmethod
     def remove(cls, id):
         try:
             da = CategoryDa()
-            result = da.remove_by_id(id)
+            result = da.remove(id)
 
             if result:
                 return f"Category with id {id} has been removed"
@@ -54,6 +56,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
+    @classmethod
     def find_all(cls):
         try:
             da = CategoryDa()
@@ -67,7 +70,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
-
+    @classmethod
     def find_by_id(cls, id):
         try:
             da = CategoryDa()

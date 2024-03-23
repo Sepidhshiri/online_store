@@ -26,7 +26,8 @@ class ProductController:
         except Exception as e:
             return str(e)
 
-    def edit_by_id(self, id, name, brand, buy_price, sell_price, category_id):
+    @classmethod
+    def edit(cls, id, name, brand, buy_price, sell_price, category_id):
         try:
             da = ProductDa()
             product = da.find_by_id(id)
@@ -46,10 +47,11 @@ class ProductController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    @classmethod
+    def remove(cls, id):
         try:
             da = ProductDa()
-            result = da.remove_by_id(id)
+            result = da.remove(id)
 
             if result:
                 return f"Product with id {id} has been removed"
@@ -59,7 +61,8 @@ class ProductController:
         except Exception as e:
             return str(e)
 
-    def find_by_id(self, id):
+    @classmethod
+    def find_by_id(cls, id):
         try:
             da = ProductDa()
             product = da.find_by_id(id)
