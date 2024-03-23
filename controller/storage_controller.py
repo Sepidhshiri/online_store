@@ -1,17 +1,14 @@
 from model.entity import *
 from model.da import *
-from model.da.storage_da import StorageDa
-from model.entity.storage import Storage
-from tools.validators import id_validator, quantity_validator, product_status_validator
 
 
 class StorageController:
     @classmethod
     def save(cls, quantity, product_status, product_id):
         try:
-            storage = Storage(quantity=quantity_validator(quantity, "invalid quantity"),
-                              product_status=product_status_validator(product_status, "invalid product status"),
-                              product_id=id_validator(product_id, "invalid product ID"))
+            storage = Storage(quantity=quantity,
+                              product_status=product_status,
+                              product_id=product_id)
 
             da = StorageDa()
             result = da.save(storage)
@@ -31,9 +28,9 @@ class StorageController:
             storage = da.find_by_id(id)
 
             if storage:
-                storage.quantity = quantity_validator(quantity, "invalid quantity")
-                storage.product_status = product_status_validator(product_status, "invalid product status")
-                storage.product_id = id_validator(product_id, "invalid product ID")
+                storage.quantity = quantity
+                storage.product_status = product_status
+                storage.product_id = product_id
 
                 da.edit(storage)
                 return f"Storage record for product ID {product_id} edited successfully"

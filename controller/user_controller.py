@@ -2,8 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.user_da import UserDa
 from model.entity.user import User
-from tools.validators import name_validator, family_validator, phone_validator, username_validator, \
-    password_validator
+from tools.validators import name_validator, family_validator, phone_validator
 
 
 class UserController:
@@ -83,14 +82,13 @@ class UserController:
     @classmethod
     def find_by_username(cls, username):
         try:
-            if username_validator(username, "invalid username"):
-                da = UserDa()
-                user = da.find_by_username(username)
+            da = UserDa()
+            user = da.find_by_username(username)
 
-                if user:
-                    return f"User found by username {username}"
-                else:
-                    return "User not found"
+            if user:
+                return f"User found by username {username}"
+            else:
+                return "User not found"
 
         except Exception as e:
             return str(e)
