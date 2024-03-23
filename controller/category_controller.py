@@ -1,8 +1,7 @@
 from model.entity import *
 from model.da import *
-from model.da.category_da import CategoryDa
-from model.entity.category import Category
-from tools.validator import name_validator, description_validator
+
+from tools.validators import name_validator, description_validator
 
 
 class CategoryController:
@@ -24,7 +23,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
-    def edit(self, id, name, description, sub_category=None):
+    def edit(cls, id, name, description, sub_category=None):
         try:
             da = CategoryDa()
             category = da.find_by_id(id)
@@ -42,7 +41,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
-    def remove(self, id):
+    def remove(cls, id):
         try:
             da = CategoryDa()
             result = da.remove_by_id(id)
@@ -55,7 +54,7 @@ class CategoryController:
         except Exception as e:
             return str(e)
 
-    def find_all(self):
+    def find_all(cls):
         try:
             da = CategoryDa()
             category = da.find_all(Category)
@@ -69,7 +68,7 @@ class CategoryController:
             return str(e)
 
 
-    def find_by_id(self, id):
+    def find_by_id(cls, id):
         try:
             da = CategoryDa()
             category = da.find_by_id(id)
