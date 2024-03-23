@@ -24,7 +24,7 @@ class StorageController:
         except Exception as e:
             return str(e)
 
-    def edit_by_id(self, id, quantity, product_status, product_id):
+    def edit(self, id, quantity, product_status, product_id):
         try:
             da = StorageDa()
             storage = da.find_by_id(id)
@@ -42,7 +42,7 @@ class StorageController:
         except Exception as e:
             return str(e)
 
-    def remove_by_id(self, id):
+    def remove(self, id):
         try:
             da = StorageDa()
             result = da.remove_by_id(id)
@@ -55,7 +55,7 @@ class StorageController:
         except Exception as e:
             return str(e)
 
-    def find_by_id(self, id):
+    def find_all(self, id):
         try:
             da = StorageDa()
             storage = da.find_by_id(id)
