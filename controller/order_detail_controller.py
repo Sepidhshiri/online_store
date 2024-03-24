@@ -48,6 +48,20 @@ class OrderDetailController:
         except Exception as e:
             return str(e)
 
+
+    @classmethod
+    def find_all(cls):
+        try:
+            da = OrderDetailDa()
+            return da.find_all(OrderDetail)
+        except Exception as e:
+            return str(e)
+
+
+        except Exception as e:
+            return str(e)
+
+
     @classmethod
     def find_by_id(cls, id):
         try:

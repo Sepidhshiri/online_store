@@ -61,6 +61,14 @@ class ProductController:
             return str(e)
 
     @classmethod
+    def find_all(cls):
+        try:
+            da = Product()
+            return da.find_all(Product)
+        except Exception as e:
+            return str(e)
+
+    @classmethod
     def find_by_id(cls, id):
         try:
             da = ProductDa()

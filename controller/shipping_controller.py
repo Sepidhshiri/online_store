@@ -59,6 +59,14 @@ class ShippingController:
             return str(e)
 
     @classmethod
+    def find_all(cls):
+        try:
+            da = ShippingDa()
+            return da.find_all(Shipping)
+        except Exception as e:
+            return str(e)
+
+    @classmethod
     def find_by_id(cls, id):
         try:
             da = ShippingDa()

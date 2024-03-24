@@ -55,16 +55,10 @@ class StorageController:
             return str(e)
 
     @classmethod
-    def find_all(cls, id):
+    def find_all(cls):
         try:
             da = StorageDa()
-            storage = da.find_by_id(id)
-
-            if storage:
-                return f"Storage record found by id {id}"
-            else:
-                return "Storage record not found"
-
+            return da.find_all(Storage)
         except Exception as e:
             return str(e)
 
