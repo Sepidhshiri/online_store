@@ -66,6 +66,15 @@ class UserController:
             return str(e)
 
     @classmethod
+    def find_all(cls):
+        try:
+            da = UserDa()
+            return da.find_all(User)
+        except Exception as e:
+            return str(e)
+
+
+    @classmethod
     def find_by_id(cls, id):
         try:
             da = UserDa()
