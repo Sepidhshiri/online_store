@@ -2,8 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.product_da import ProductDa
 from model.entity.product import Product
-from tools.validators import name_validator, price_validator, id_validator
-
+from tools.validators import name_validator
 
 class ProductController:
     @classmethod
@@ -11,9 +10,9 @@ class ProductController:
         try:
             product = Product(name=name_validator(name, "invalid name"),
                               brand=brand,
-                              buy_price=price_validator(buy_price, "invalid buy price"),
-                              sell_price=price_validator(sell_price, "invalid sell price"),
-                              category_id=id_validator(category_id, "invalid category ID"))
+                              buy_price=buy_price,
+                              sell_price=sell_price,
+                              category_id=category_id)
 
             da = ProductDa()
             result = da.save(product)
@@ -35,9 +34,9 @@ class ProductController:
             if product:
                 product.name = name_validator(name, "invalid name")
                 product.brand = brand
-                product.buy_price = price_validator(buy_price, "invalid buy price")
-                product.sell_price = price_validator(sell_price, "invalid sell price")
-                product.category_id = id_validator(category_id, "invalid category ID")
+                product.buy_price = buy_price
+                product.sell_price = sell_price
+                product.category_id = category_id
 
                 da.edit(product)
                 return f"Product {product.name} edited successfully"

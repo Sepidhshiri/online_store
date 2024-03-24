@@ -2,8 +2,7 @@ from model.entity import *
 from model.da import *
 from model.da.shipping_da import ShippingDa
 from model.entity.shipping import Shipping
-from tools.validators import name_validator, address_validator, city_validator, postalcode_validator
-
+from tools.validators import name_validator, address_validator, city_validator
 
 class ShippingController:
     @classmethod
@@ -12,7 +11,7 @@ class ShippingController:
             shipping = Shipping(recipient_name=name_validator(recipient_name, "invalid recipient name"),
                                 address=address_validator(address, "invalid address"),
                                 city=city_validator(city, "invalid city"),
-                                postalcode=postalcode_validator(postalcode, "invalid postal code"))
+                                postalcode=postalcode)
 
             da = ShippingDa()
             result = da.save(shipping)
@@ -35,7 +34,7 @@ class ShippingController:
                 shipping.recipient_name = name_validator(recipient_name, "invalid recipient name")
                 shipping.address = address_validator(address, "invalid address")
                 shipping.city = city_validator(city, "invalid city")
-                shipping.postalcode = postalcode_validator(postalcode, "invalid postal code")
+                shipping.postalcode = postalcode
 
                 da.edit(shipping)
                 return f"Shipping details for {shipping.recipient_name} edited successfully"

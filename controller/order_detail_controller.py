@@ -1,20 +1,19 @@
 from model.entity import *
 from model.da import *
 
-from tools.validators import quantity_validator, price_validator, comment_validator
 
 
 class OrderDetailController:
     @classmethod
     def save(cls, quantity, price, comment, product_id, order_id):
         try:
-            order_detail = OrderDetail(
-                quantity_validator(quantity, "Invalid quantity"),
-                price_validator(price, "Invalid price"),
-                comment_validator(comment, "Invalid comment"),
-                product_id,
-                order_id
-            )
+            order_detail = OrderDetail (
+                quantity = quantity ,
+                price = price,
+                comment = comment,
+                product_id = product_id ,
+                order_id = order_id)
+
             print(order_detail)
             da = OrderDetailDa()
             result = da.save(order_detail)
@@ -29,9 +28,9 @@ class OrderDetailController:
             da = OrderDetailDa()
             order_detail = da.edit(id)
             if order_detail:
-                order_detail.quantity = quantity_validator(quantity, "Invalid quantity")
-                order_detail.price = price_validator(price, "Invalid price")
-                order_detail.comment = comment_validator(comment, "Invalid comment")
+                order_detail.quantity = quantity
+                order_detail.price = price
+                order_detail.comment = comment
                 order_detail.product_id = product_id
                 order_detail.order_id = order_id
                 da.edit(order_detail)

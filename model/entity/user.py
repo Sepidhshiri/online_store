@@ -15,7 +15,7 @@ class User(Base):
     address = Column(String(100))
     role = Column(String(20))  # Assuming role is a string attribute
 
-    orders = relationship("Order")
+    orders = relationship("Order",back_populates="user")
 
     def __init__(self, name, family, birth_date, phone, email, address, role):
         self.name = name

@@ -1,7 +1,7 @@
 from model.entity import *
 from model.da import *
 
-from tools.validators import name_validator, description_validator
+from tools.validators import name_validator
 
 
 class CategoryController:
@@ -9,7 +9,7 @@ class CategoryController:
     def save(cls, name, description, sub_category=None):
         try:
             category = Category(name=name_validator(name, "invalid name"),
-                                description=description_validator(description, "invalid description"),
+                                description=description,
                                 sub_category=sub_category)
 
             da = CategoryDa()
@@ -31,7 +31,7 @@ class CategoryController:
 
             if category:
                 category.name = name_validator(name, "invalid name")
-                category.description = description_validator(description, "invalid description")
+                category.description = description
                 category.sub_category = sub_category
 
                 da.edit(category)

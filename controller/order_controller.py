@@ -1,18 +1,18 @@
 from model.entity import *
 from model.da import *
 
-from tools.validators import id_validator, order_type_validator, order_status_validator, cost_validator
 
 
 class OrderController:
     @classmethod
     def save(cls, order_type, order_status, total_cost, customer_id, shipping_id):
         try:
-            order = Order(order_type=order_type_validator(order_type, "invalid order type"),
-                          order_status=order_status_validator(order_status, "invalid order status"),
-                          total_cost=cost_validator(total_cost, "invalid total cost"),
-                          customer_id=id_validator(customer_id, "invalid customer ID"),
-                          shipping_id=id_validator(shipping_id, "invalid shipping ID"))
+            order = Order(order_type=order_type,
+                          order_status=order_status,
+                          total_cost=total_cost,
+                          customer_id=customer_id,
+                          shipping_id=shipping_id )
+
 
             da = OrderDa()
             result = da.save(order)
@@ -32,11 +32,11 @@ class OrderController:
             order = da.find_by_id(id)
 
             if order:
-                order.order_type = order_type_validator(order_type, "invalid order type")
-                order.order_status = order_status_validator(order_status, "invalid order status")
-                order.total_cost = cost_validator(total_cost, "invalid total cost")
-                order.customer_id = id_validator(customer_id, "invalid customer ID")
-                order.shipping_id = id_validator(shipping_id, "invalid shipping ID")
+                order.order_type = order_type
+                order.order_status = order_status
+                order.total_cost = total_cost
+                order.customer_id = customer_id
+                order.shipping_id = shipping_id
 
                 da.edit(order)
                 return f"Order with ID {order.id} edited successfully"
