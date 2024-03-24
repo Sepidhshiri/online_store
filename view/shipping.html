@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Shipping Information Form</h2>
+        <form action="/shipping" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" placeholder="Enter ID" required>
+
+            <label for="recipient_name">Recipient Name:</label>
+            <input type="text" id="recipient_name" name="recipient_name" placeholder="Enter recipient name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Enter address" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" placeholder="Enter city" required>
+
+            <label for="postalcode">Postal Code:</label>
+            <input type="text" id="postalcode" name="postalcode" placeholder="Enter postal code" required>
+
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</body>
+</html>
+

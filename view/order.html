@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Order Information Form</h2>
+        <form action="/order" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" placeholder="Enter order ID" required>
+
+            <label for="order_type">Order Type:</label>
+            <input type="text" id="order_type" name="order_type" placeholder="Enter order type" required>
+
+            <label for="order_status">Order Status:</label>
+            <input type="text" id="order_status" name="order_status" placeholder="Enter order status" required>
+
+            <label for="total_cost">Total Cost:</label>
+            <input type="number" id="total_cost" name="total_cost" placeholder="Enter total cost" required>
+
+            <label for="customer_id">Customer ID:</label>
+            <input type="text" id="customer_id" name="customer_id" placeholder="Enter customer ID" required>
+
+            <label for="shipping_id">Shipping ID:</label>
+            <input type="text" id="shipping_id" name="shipping_id" placeholder="Enter shipping ID" required>
+
+            <input type="submit" value="Save">
+        </form>
+    </div>
+</body>
+</html>
